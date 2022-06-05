@@ -23,6 +23,11 @@ jobs:
       - name: build
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@2.3.1
+        with:
+          name: my_app
+          path: app_**
         
   build_mac:
     runs-on: macos-latest
@@ -31,6 +36,11 @@ jobs:
       - name: build
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@2.3.1
+        with:
+          name: my_app
+          path: app_**
           
   build_windows:
     runs-on: windows-latest
@@ -39,6 +49,11 @@ jobs:
       - name: build
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@2.3.1
+        with:
+          name: my_app
+          path: app_**
 
   test:
     runs-on: ubuntu-latest
