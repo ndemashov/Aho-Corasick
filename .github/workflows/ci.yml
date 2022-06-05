@@ -24,7 +24,7 @@ jobs:
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: my_app
           path: app_**
@@ -37,7 +37,7 @@ jobs:
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: my_app
           path: app_**
@@ -50,7 +50,7 @@ jobs:
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: my_app
           path: app_**
