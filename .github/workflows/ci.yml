@@ -28,7 +28,7 @@ jobs:
         with:
           name: my_app
           path: app_**
-          retention_days: 1
+          retention-days: 1
         
   build_macos:
     runs-on: macos-latest
@@ -42,7 +42,7 @@ jobs:
         with:
           name: my_app
           path: app_**
-          retention_days: 1
+          retention-days: 1
           
   build_windows:
     runs-on: windows-latest
@@ -56,7 +56,7 @@ jobs:
         with:
           name: my_app
           path: main.exe
-          retention_days: 1
+          retention-days: 1
 
   test:
     needs: [build_linux, build_macos, build_windows]
