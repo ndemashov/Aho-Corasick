@@ -26,8 +26,9 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_ubuntu
+          name: my_app
           path: app_**
+          retention_days: 1
         
   build_macos:
     runs-on: macos-latest
@@ -39,8 +40,9 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_macos
+          name: my_app
           path: app_**
+          retention_days: 1
           
   build_windows:
     runs-on: windows-latest
@@ -52,10 +54,12 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_windows
+          name: main.exe
           path: app_**
+          retention_days: 1
 
   test:
+    needs: [build_linux, build_macos, build_windows]
     runs-on: ubuntu-latest
     steps:
       - name: run_tests 
