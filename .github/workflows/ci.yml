@@ -54,8 +54,8 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: main.exe
-          path: app_**
+          name: my_app
+          path: main.exe
           retention_days: 1
 
   test:
