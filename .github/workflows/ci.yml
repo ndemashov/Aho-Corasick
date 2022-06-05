@@ -26,10 +26,10 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_${RUNNER_OS}
+          name: my_app_ubuntu
           path: app_**
         
-  build_mac:
+  build_macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_${RUNNER_OS}
+          name: my_app_macos
           path: app_**
           
   build_windows:
@@ -52,7 +52,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: my_app_${RUNNER_OS}
+          name: my_app_windows
           path: app_**
 
   test:
