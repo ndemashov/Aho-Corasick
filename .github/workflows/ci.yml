@@ -16,12 +16,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  build:
+  build_linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: g++ main.cpp -o app
+        run: g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
+        
+  build_mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build
+        run: g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
 
   test:
     runs-on: ubuntu-latest
