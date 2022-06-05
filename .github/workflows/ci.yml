@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: g++ ac.cpp -o app
+        run: g++ main.cpp -o app
 
   test:
     runs-on: ubuntu-latest
