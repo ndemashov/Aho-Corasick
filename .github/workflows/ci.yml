@@ -48,9 +48,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: ilammy/msvc-dev-cmd@v1
       - name: build
         run: |
-          g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
+          cl /EHsc main.cpp
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
