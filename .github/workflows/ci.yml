@@ -23,7 +23,6 @@ jobs:
       - name: build
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
-          ls -la
         
   build_mac:
     runs-on: macos-latest
@@ -32,7 +31,14 @@ jobs:
       - name: build
         run: |
           g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
-          ls -la
+          
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build
+        run: |
+          g++ main.cpp -o app_${RUNNER_OS}_ver.${GITHUB_RUN_NUMBER}
 
   test:
     runs-on: ubuntu-latest
