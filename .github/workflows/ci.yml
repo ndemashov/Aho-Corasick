@@ -51,7 +51,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
       - name: build
         run: |
-          cl /EHsc main.cpp
+          ccl /EHsc main.cpp
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
@@ -67,6 +67,7 @@ jobs:
         run: env
         
   report:
+    if: failure()
     needs: [build_linux, build_macos, build_windows]
     runs-on: ubuntu-latest
     steps:
@@ -76,6 +77,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
+            FAIL 👉🧠👈
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             
